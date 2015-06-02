@@ -36,7 +36,28 @@
                 break;
             }
         }
-
+            case Gesture.GestureType.TYPE_SWIPE:
+                SwipeGesture swipe = new SwipeGesture (gesture);
+                SafeWriteLine ("  Swipe id: " + swipe.Id
+                               + ", " + swipe.State
+                               + ", position: " + swipe.Position
+                               + ", direction: " + swipe.Direction
+                               + ", speed: " + swipe.Speed);
+                break;
+            case Gesture.GestureType.TYPE_KEY_TAP:
+                KeyTapGesture keytap = new KeyTapGesture (gesture);
+                SafeWriteLine ("  Tap id: " + keytap.Id
+                               + ", " + keytap.State
+                               + ", position: " + keytap.Position
+                               + ", direction: " + keytap.Direction);
+                break;
+            case Gesture.GestureType.TYPE_SCREEN_TAP:
+                ScreenTapGesture screentap = new ScreenTapGesture (gesture);
+                SafeWriteLine ("  Tap id: " + screentap.Id
+                               + ", " + screentap.State
+                               + ", position: " + screentap.Position
+                               + ", direction: " + screentap.Direction);
+                break;
         if (!frame.Hands.IsEmpty || !frame.Gestures ().IsEmpty) {
             SafeWriteLine ("");
         }
